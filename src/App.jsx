@@ -4,8 +4,17 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [inputValue, setInputValue] = useState('')
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  function submit() {
+    console.log(email, password)
+    alert(`email is ${email}, password is ${password}`)
+    setEmail('')
+    setPassword('')
+  }
+
   return (
     <>
       <div>
@@ -16,20 +25,12 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
-      <input type="number" onChange={(e) => setInputValue(e.target.value)} />
-      <button onClick={() => setCount(inputValue)}>Update</button>
-      <div className="card">
-        <button onClick={() => setCount(count + 1)}>
-            count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div>
+        <p>Login page</p>
+        EMail: <input value={email} onChange={e => setEmail(e.target.value)} />
+        Password: <input value={password} onChange={e => setPassword(e.target.value)} />
+        <button onClick={submit}>Submit</button>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
