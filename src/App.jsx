@@ -8,12 +8,17 @@ function App() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [isSubmitted, setSubmitted] = useState(false)
 
   function submit() {
-    console.log(email, password)
+    console.log(confirmPassword, password)
     // setEmail('')
     // setPassword('')
+    if (password !== confirmPassword) {
+      alert('confirm password mismatch password')
+      return;
+    }
     setSubmitted(true);
   }
 
@@ -27,7 +32,11 @@ function App() {
     setSubmitted(false)
   }
 
-  console.log(isSubmitted);
+  function changeConfirmPassword(e) {
+    setConfirmPassword(e.target.value)
+    setSubmitted(false)
+  }
+
   return (
     <>
       <div>
@@ -42,6 +51,7 @@ function App() {
         <p>Login page</p>
         EMail: <input value={email} onChange={changeEmail} />
         Password: <input value={password} onChange={changePassword} />
+        Confirm Password: <input value={confirmPassword} onChange={changeConfirmPassword} />
         <button onClick={submit}>Submit</button>
       </div>
       {
