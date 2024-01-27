@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Result from "./components/Result.jsx";
 
 function App() {
 
@@ -44,11 +45,7 @@ function App() {
         <button onClick={submit}>Submit</button>
       </div>
       {
-        isSubmitted ? <div>
-          Result:
-          <p>Email: {email}</p>
-          <p>Password: {password}</p>
-        </div> : <div />
+        isSubmitted ? <Result email={email} password={password} /> : <div />
       }
     </>
   )
