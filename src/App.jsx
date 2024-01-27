@@ -7,14 +7,26 @@ function App() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isSubmitted, setSubmitted] = useState(false)
 
   function submit() {
     console.log(email, password)
-    alert(`email is ${email}, password is ${password}`)
-    setEmail('')
-    setPassword('')
+    // setEmail('')
+    // setPassword('')
+    setSubmitted(true);
   }
 
+  function changeEmail(e) {
+    setEmail(e.target.value)
+    setSubmitted(false)
+  }
+
+  function changePassword(e) {
+    setPassword(e.target.value)
+    setSubmitted(false)
+  }
+
+  console.log(isSubmitted);
   return (
     <>
       <div>
@@ -27,10 +39,17 @@ function App() {
       </div>
       <div>
         <p>Login page</p>
-        EMail: <input value={email} onChange={e => setEmail(e.target.value)} />
-        Password: <input value={password} onChange={e => setPassword(e.target.value)} />
+        EMail: <input value={email} onChange={changeEmail} />
+        Password: <input value={password} onChange={changePassword} />
         <button onClick={submit}>Submit</button>
       </div>
+      {
+        isSubmitted ? <div>
+          Result:
+          <p>Email: {email}</p>
+          <p>Password: {password}</p>
+        </div> : <div />
+      }
     </>
   )
 }
