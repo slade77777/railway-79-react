@@ -1,0 +1,16 @@
+.form {
+    position: absolute;
+    top: 40px;
+    left: 30vw;
+    width: 40vw;
+    background-color: white;
+    p {
+        color: black
+    }
+
+    .submit {
+        margin-top: 12px;
+        padding-bottom: 20px;
+        gap: 20px;
+    }
+}
