@@ -1,6 +1,13 @@
 import './product-form.css';
 import {useState} from "react";
 
+const a = [
+  'san pham 1',
+  'san pham 2',
+  'san pham 3',
+  'san pham 4',
+]
+
 const ProductForm = ({saveProduct}) => {
 
   const [isAdding, setAdding] = useState(false)
