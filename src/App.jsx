@@ -3,8 +3,10 @@ import ProductForm from "./components/ProductForm.jsx";
 import {useState} from "react";
 
 const Product = ({name, company, amount, price, isEvenLine}) => {
-  const [isShowPrice, setShowPrice] = useState(true)
-  console.log(isEvenLine);
+  // const [isShowPrice, setShowPrice] = useState(true)
+  // const [totalPrice, setTotalPrice] = useState(price * amount)
+
+  const totalPrice = price * amount
   return <tr style={{ backgroundColor : isEvenLine ? 'blue' : 'red'}}>
     <td>
       {name}
@@ -15,14 +17,11 @@ const Product = ({name, company, amount, price, isEvenLine}) => {
     <td>
       {amount}
     </td>
-    {isShowPrice ? <td>
-      {price}
-    </td> : <td></td>}
     <td>
-      {
-        isShowPrice ? <button onClick={() => setShowPrice(false)}>Ẩn Giá tiền</button>
-          : <button onClick={() => setShowPrice(true)}>Hiện Giá tiền</button>
-      }
+      {price}
+    </td>
+    <td>
+      {totalPrice}
     </td>
   </tr>
 }
@@ -56,7 +55,7 @@ function App() {
             Giá tiền
           </th>
           <th>
-            Action
+            Tổng số tiền
           </th>
         </tr>
         </thead>
